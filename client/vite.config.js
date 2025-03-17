@@ -12,8 +12,14 @@ export default defineConfig({
         ws: true,
       },
     },
+
+    host: true, 
+    cors: true,
+    strictPort: true,
+    allowedHosts: ['.trycloudflare.com'],
+
     hmr: {
-      clientPort: 443,
+        clientPort: 443,
+      },
     },
-  },
 });
