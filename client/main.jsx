@@ -1,19 +1,21 @@
 import { DiscordSDK } from "@discord/embedded-app-sdk";
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 import './style.css'
 import rocketLogo from '/rocket.png'
+import App from "./src/components/App";
 
 let auth;
 
-
+/*
 if (window.DiscordSDK) {
   const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
   await discordSdk.ready();
 } else {
   console.warn("Discord SDK not available — running in regular browser mode.");
-}
+}*/
 
-
+/*
 setupDiscordSdk().then(() => {
   console.log("Discord SDK is ready");
   appendVoiceChannelName();
@@ -36,11 +38,13 @@ async function setupDiscordSdk() {
       "applications.commands"
     ],
   });
-
+*/
   // Retrieve an access_token from your activity's server
   // Note: We need to prefix our backend `/api/token` route with `/.proxy` to stay compliant with the CSP.
   // Read more about constructing a full URL and using external resources at
   // https://discord.com/developers/docs/activities/development-guides#construct-a-full-url
+
+  /*
   const response = await fetch("/.proxy/api/token", {
     method: "POST",
     headers: {
@@ -62,15 +66,16 @@ async function setupDiscordSdk() {
   }
 
 }
+*/
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <img src="${rocketLogo}" class="logo" alt="Discord" />
-    <h1>Hello, World! so trueee</h1>
-  </div>
-`;
+ReactDOM.createRoot(document.getElementById('app')).render(
+  <React.StrictMode>
+    <App></App>
+  </React.StrictMode>,
+)
 
 
+/*
 async function appendVoiceChannelName() {
   const app = document.querySelector('#app');
 
@@ -122,3 +127,4 @@ async function appendGuildAvatar() {
     app.appendChild(guildImg);
   }
 }
+*/
